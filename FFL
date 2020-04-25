@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    int t;
+    cin >> t;
+    for(int i=0; i<t; i++){
+        int n, s;
+        cin >> n >> s;
+        int arr[n];
+        for(int j=0; j<n; j++){
+            cin >> arr[j];
+        }
+        int minndefender=10000;
+        int minnforward=10000;
+        for(int j=0; j<n; j++){
+            int type;
+            cin >> type;
+            if(type==1 and arr[j]<minnforward) minnforward=arr[j];
+            if(type==0 and arr[j]<minndefender) minndefender=arr[j];
+        }
+        if(s+minndefender+minnforward>100) cout << "no" << endl;
+        else cout << "yes" << endl;
+    }
+}
